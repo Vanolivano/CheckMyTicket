@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\git\\CheckMyTicket\\CheckMyTicket.csproj": {}
+    "E:\\git\\CheckMyTicketProject\\CheckMyTicket.Tests\\CheckMyTicket.Tests\\CheckMyTicket.Tests.csproj": {}
   },
   "projects": {
-    "E:\\git\\CheckMyTicket\\CheckMyTicket.csproj": {
+    "E:\\git\\CheckMyTicketProject\\CheckMyTicket.Tests\\CheckMyTicket.Tests\\CheckMyTicket.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\git\\CheckMyTicket\\CheckMyTicket.csproj",
-        "projectName": "CheckMyTicket",
-        "projectPath": "E:\\git\\CheckMyTicket\\CheckMyTicket.csproj",
+        "projectUniqueName": "E:\\git\\CheckMyTicketProject\\CheckMyTicket.Tests\\CheckMyTicket.Tests\\CheckMyTicket.Tests.csproj",
+        "projectName": "CheckMyTicket.Tests",
+        "projectPath": "E:\\git\\CheckMyTicketProject\\CheckMyTicket.Tests\\CheckMyTicket.Tests\\CheckMyTicket.Tests.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-        "outputPath": "E:\\git\\CheckMyTicket\\obj\\",
+        "outputPath": "E:\\git\\CheckMyTicketProject\\CheckMyTicket.Tests\\CheckMyTicket.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,23 +41,21 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[16.5.0, )"
             },
-            "Microsoft.EntityFrameworkCore.InMemory": {
+            "coverlet.collector": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[1.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "xunit": {
               "target": "Package",
-              "version": "[3.1.8, )"
+              "version": "[2.4.0, )"
             },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "xunit.runner.visualstudio": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[2.4.0, )"
             }
           },
           "imports": [
@@ -71,9 +69,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

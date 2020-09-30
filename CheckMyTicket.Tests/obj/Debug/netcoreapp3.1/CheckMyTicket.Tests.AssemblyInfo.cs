@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("CheckMyTicket")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("CheckMyTicket.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("CheckMyTicket")]
-[assembly: System.Reflection.AssemblyTitleAttribute("CheckMyTicket")]
+[assembly: System.Reflection.AssemblyProductAttribute("CheckMyTicket.Tests")]
+[assembly: System.Reflection.AssemblyTitleAttribute("CheckMyTicket.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.
