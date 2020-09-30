@@ -22,16 +22,16 @@ namespace CheckMyTicket.Controllers
 
         // GET: api/Tickets
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ticket>>> GetTodoItems()
+        public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
         {
-            return await _context.TodoItems.ToListAsync();
+            return await _context.Tickets.ToListAsync();
         }
 
         // GET: api/Tickets/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Ticket>> GetTicket(long id)
         {
-            var ticket = await _context.TodoItems.FindAsync(id);
+            var ticket = await _context.Tickets.FindAsync(id);
 
             if (ticket == null)
             {
@@ -79,7 +79,7 @@ namespace CheckMyTicket.Controllers
         [HttpPost]
         public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
         {
-            _context.TodoItems.Add(ticket);
+            _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
@@ -89,21 +89,27 @@ namespace CheckMyTicket.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Ticket>> DeleteTicket(long id)
         {
-            var ticket = await _context.TodoItems.FindAsync(id);
+            var ticket = await _context.Tickets.FindAsync(id);
             if (ticket == null)
             {
                 return NotFound();
             }
 
-            _context.TodoItems.Remove(ticket);
+            _context.Tickets.Remove(ticket);
             await _context.SaveChangesAsync();
 
             return ticket;
         }
+        [HttpPost("checkmyticket")]
+        public async Task<IActionResult> CheckMyTicket(Ticket ticket)
+        {
+            var isWin = await _context.Tickets.AnyAsync(x => x.Edition == ticket.Edition && x.Number == ticket.Number);
+            return Ok(isWin);
+        }
 
         private bool TicketExists(long id)
         {
-            return _context.TodoItems.Any(e => e.Id == id);
+            return _context.Tickets.Any(e => e.Id == id);
         }
     }
 }
