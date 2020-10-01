@@ -11,9 +11,9 @@
 •	Написать юнит тесты
 ------------------------------------------------------------------------------
 
-Решение состоит из двух проектов
-• CheckMyTicket
-• CheckMyTicket.Test
+#Решение состоит из двух проектов
+#• CheckMyTicket
+#• CheckMyTicket.Test
 
 CheckMyTicket - dotnet core project with api controller
 TicketsController - controller реализут два метода: GetTickets, CheckMyTicket
