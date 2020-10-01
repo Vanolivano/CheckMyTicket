@@ -3,7 +3,7 @@
 - Вид номера билета: 
 - <Номер тиража>-<Номер билета>
 - Например: 128-A234D31
-Условия:
+# Условия:
 -	Проверить валидность данных
 -	Использовать любое хранилище данных
 -	Асинхронный код
@@ -11,16 +11,16 @@
 - Написать юнит тесты
 
 
-# Решение состоит из двух проектов
+# Решение состоит из двух проектов:
 - CheckMyTicket
 - CheckMyTicket.Test
 
-# CheckMyTicket - dotnet core project with api controller
+# CheckMyTicket - dotnet core project with api controller:
 - TicketsController - controller реализут два метода: GetTickets, CheckMyTicket
 - [GET: api/Tickets] GetTickets - возвращает список всех билетов
 - [POST: api/Tickets/CheckMyTicket] CheckMyTicket - проверяет выигрыш билета по номеру, возвращает true - если выигрыш, false - проигрыш
 
-# CheckMyTicket.Test - xUnit project with two methods CheckMyTicket_CheckStatusCode, CheckMyTicket_CheckReturns
+# CheckMyTicket.Test - xUnit project with two methods:
 - CheckMyTicket_CheckStatusCode - проверят валидацию метода CheckMyTicket
 - CheckMyTicket_CheckReturns - проверяет результат выполнения метода CheckMyTicket
 
