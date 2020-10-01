@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using CheckMyTicket.Models;
+using CheckMyTicket.Services;
 
 namespace CheckMyTicket.Controllers
 {
@@ -13,24 +9,26 @@ namespace CheckMyTicket.Controllers
     [ApiController]
     public class TicketsController : ControllerBase
     {
-        private readonly TicketContext _context;
+        private readonly TicketService _ticketService;
 
-        public TicketsController(TicketContext context)
+        public TicketsController(TicketService ticketService)
         {
-            _context = context;
+            _ticketService = ticketService;
         }
 
         // GET: api/Tickets
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
+        public async Task<IActionResult> GetTickets()
         {
-            return await _context.Tickets.ToListAsync();
+            var result =  await _ticketService.GetAll();
+            return Ok(result);
         }
-
+        
+        //POST: api/Tickets/CheckMyTicket
         [HttpPost("checkmyticket")]
         public async Task<IActionResult> CheckMyTicket(Ticket ticket)
         {
-            var isWin = await _context.Tickets.AnyAsync(x => x.Edition == ticket.Edition && x.Number == ticket.Number);
+            var isWin = await _ticketService.CheckMyTicket(ticket);
             return Ok(isWin);
         }
     }

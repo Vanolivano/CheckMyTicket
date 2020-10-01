@@ -8,6 +8,7 @@ using System;
 using System.Net;
 using ConnectingApps.IntegrationFixture;
 using Refit;
+using CheckMyTicket.Services;
 
 namespace CheckMyTicket.Tests
 {
@@ -35,7 +36,8 @@ namespace CheckMyTicket.Tests
         [InlineData("121", "A234D35", false)]
         public async Task CheckMyTicket_CheckReturns(string edition, string number, bool expectedResult)
         {
-            var ticketsController = new TicketsController(_context);
+            var ticketService = new TicketService(_context); 
+            var ticketsController = new TicketsController(ticketService);
             var result = await ticketsController.CheckMyTicket(new Ticket{ Edition = edition, Number = number}) as ObjectResult;
             var actualResult = result.Value;
             Assert.Equal(expected: expectedResult, actual: actualResult);

@@ -9,5 +9,10 @@ namespace CheckMyTicket.Models
         [Required(ErrorMessage = "Укажите номер билета")]
         [StringLength(7, MinimumLength = 7, ErrorMessage = "Недопустимая длина номера билета")]
         public string Number { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Edition}-{Number}";
+        }
     }
 }

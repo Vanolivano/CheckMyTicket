@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using CheckMyTicket.Models;
+using CheckMyTicket.Services;
 
 namespace CheckMyTicket
 {
@@ -25,7 +26,9 @@ namespace CheckMyTicket
             //     options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             // services.AddDbContext<TicketContext>(options => 
             //     options.UseNpgsql(Configuration.GetConnectionString("PostgresConnection")));
+            services.AddTransient<TicketService>();
             services.AddControllers();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
