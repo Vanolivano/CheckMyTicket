@@ -14,7 +14,7 @@ namespace CheckMyTicket.Models
         {
             modelBuilder.Entity<Ticket>().HasKey(u => new { u.Edition, u.Number});
             modelBuilder.Entity<Ticket>().HasData(new Ticket {Edition = "123", Number = "A234D31"});
-            modelBuilder.Entity<Ticket>().HasData(new Ticket {Edition = "321", Number = "A234D32"});
+            modelBuilder.Entity<Ticket>().HasData(new Ticket {Edition = "123", Number = "A234D32"});
             modelBuilder.Entity<Ticket>().HasData(new Ticket {Edition = "123", Number = "A234D33"});
         }
 

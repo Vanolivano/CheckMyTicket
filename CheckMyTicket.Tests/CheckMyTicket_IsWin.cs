@@ -21,10 +21,6 @@ namespace CheckMyTicket.Tests
             var options = new DbContextOptionsBuilder<TicketContext>().UseInMemoryDatabase(databaseName: "TicketsDataBase").Options;
             //Create mocked Context
             _context = new TicketContext(options);
-            _context.Tickets.Add(new Ticket {Edition = "123", Number = "A234D31"});
-            _context.Tickets.Add(new Ticket {Edition = "123", Number = "A234D32"});
-            _context.Tickets.Add(new Ticket {Edition = "123", Number = "A234D33"});
-            _context.SaveChanges();
         }
 
         /// <summary>
