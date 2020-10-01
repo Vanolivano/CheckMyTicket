@@ -27,8 +27,8 @@ namespace CheckMyTicket
             // services.AddDbContext<TicketContext>(options => 
             //     options.UseNpgsql(Configuration.GetConnectionString("PostgresConnection")));
             services.AddTransient<TicketService>();
+            services.AddMemoryCache();
             services.AddControllers();
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

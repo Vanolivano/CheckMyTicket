@@ -32,7 +32,10 @@ namespace CheckMyTicket.Services
             if(_cache != null)
             {
                 _cache.TryGetValue<Ticket>(ticket.ToString(), out cacheTicket);
-                return cacheTicket != null;
+                if (cacheTicket != null)
+                {
+                    return true;
+                } 
             }
             var isResult = await _ticketContext.Tickets.AnyAsync(x => x.Edition == ticket.Edition && x.Number == ticket.Number);
             if(_cache != null && isResult)
