@@ -28,7 +28,7 @@ namespace CheckMyTicket.Tests
         }
 
         /// <summary>
-        /// Метод тестирует, результат
+        /// Метод тестирует результат
         /// </summary>
         [Theory]
         [InlineData("123", "A234D31", true)]
