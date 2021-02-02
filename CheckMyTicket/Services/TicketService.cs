@@ -28,28 +28,19 @@ namespace CheckMyTicket.Services
 
         public async Task<bool> CheckMyTicket(Ticket ticket)
         {
-            Ticket cacheTicket;
-            if(_cache != null)
-            {
-                _cache.TryGetValue<Ticket>(ticket.ToString(), out cacheTicket);
-                if (cacheTicket != null)
-                {
-                    return true;
-                } 
-            }
+            if (_cache.TryGetValue<Ticket>(ticket.ToString(), out var cacheTicket))
+                return true;
+            
             var isResult = await _ticketContext.Tickets.AnyAsync(x => x.Edition == ticket.Edition && x.Number == ticket.Number);
-            if(_cache != null && isResult)
+            if(isResult)
             {
-                if (!_cache.TryGetValue(ticket.ToString(), out cacheTicket))
-                {
-                    // Set cache options.
-                    var cacheEntryOptions = new MemoryCacheEntryOptions()
-                        // Keep in cache for this time, reset time if accessed.
-                        .SetSlidingExpiration(TimeSpan.FromSeconds(3));
+                // Set cache options.
+                var cacheEntryOptions = new MemoryCacheEntryOptions()
+                    // Keep in cache for this time, reset time if accessed.
+                    .SetSlidingExpiration(TimeSpan.FromSeconds(3));
 
-                    // Save data in cache.
-                    _cache.Set<Ticket>(ticket.ToString(), ticket, cacheEntryOptions);
-                }
+                // Save data in cache.
+                _cache.Set<Ticket>(ticket.ToString(), ticket, cacheEntryOptions);
             }
             return isResult;
         }
